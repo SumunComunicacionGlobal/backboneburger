@@ -1,0 +1,40 @@
+a.btn, .btn, button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	@include button;
+    padding: 1rem $space-4;
+	border: 0;
+	
+	&:active {
+		transition: none;
+	}
+
+	span, strong {
+		margin: 0 $space-05 0 $space-05;
+	}
+	
+	.icon {
+		/* icon inherits color of button label */
+		color: inherit;
+		flex-shrink: 0;
+	}
+}
+
+/* feedback */
+.btn[disabled] {
+	cursor: not-allowed;
+	background-color: color(primary);
+	color: color(body-white);
+	box-shadow: none;
+	opacity: 0.6;
+
+	&:visited {
+		color: color(secondary);
+	}
+}
+
+.btn--accent {
+	background-color: color(accent-magenta);
+	color: white;
+}

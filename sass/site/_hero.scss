@@ -1,0 +1,9 @@
+.img-hero-burger {
+    margin-top: -320px;
+    position: relative;
+    z-index: 9;
+
+    @include breakpoint(mobile) {
+        margin-top: -120px;
+    }
+}

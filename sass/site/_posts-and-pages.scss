@@ -1,0 +1,12 @@
+
+.single-post {
+
+    .entry-title {
+        font-weight: 500;
+        color: color(body-main);
+    }
+}
+
+.page:not(.home) .site-main {
+    margin-top: $space-8;
+}

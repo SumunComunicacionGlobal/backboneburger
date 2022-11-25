@@ -1,0 +1,91 @@
+@-webkit-keyframes slideInLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+
+@-webkit-keyframes slideInRight {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+
+/*
+ * CSS Animations
+ * Don't forget to add vendor prefixes!
+ * From: http://smoothstate.com/typical-implementation.html
+ */
+.show.animate {
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+  transition-timing-function: ease-in;
+
+  &.fast{
+    animation-duration: .5s;
+  -webkit-animation-duration: .5s;
+  }
+  &.slow{
+    animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  }
+
+  &.slideInRight {
+    animation-name: slideInRight;
+    -webkit-animation-name: slideInRight;
+  }
+
+  &.slideInLeft {
+    animation-name: slideInLeft;
+    -webkit-animation-name: slideInLeft;
+  }
+
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+  -webkit-animation-name: slideInLeft;
+}

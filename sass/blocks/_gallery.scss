@@ -1,0 +1,78 @@
+.wp-block-gallery {
+	
+	&.has-nested-images figure.wp-block-image img {
+		width: fit-content;	
+	}
+
+	&.aligncenter {
+		img {
+			align-self: center;
+		}
+	}
+}
+
+.gallery {
+	margin-bottom: 1.5em;
+	display: grid;
+	grid-gap: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+// Loops to enumerate the classes for gallery columns.
+@for $i from 2 through 9 {
+
+	.gallery-columns-#{$i} {
+		grid-template-columns: repeat($i, 1fr);
+	}
+}
+
+.gallery-caption {
+	display: block;
+}
+
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+
+	img[class*="wp-image-"] {
+		@include center-block;
+	}
+
+	.wp-caption-text {
+		margin: 0.8075em 0;
+	}
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.is-style-hover-image {
+	
+        position: relative;
+        transition: 0.1s all linear;
+        
+        &:hover {
+            background: color(primary-100);
+            
+            img{
+                opacity: .3;
+                transition: 0.4s;
+            }
+            &::after {
+                content: url(assets/icons/more.svg);
+                display: inline-block;
+                height: $space-2;
+                transition: 0.4s all ease;
+                position: absolute;
+                left: calc(50% - 0.75rem);
+                top: calc(50% - 0.75rem);
+                cursor: pointer;
+            }
+        }
+}

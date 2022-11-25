@@ -1,0 +1,29 @@
+.wp-block-query {
+
+	ul.wp-block-post-template {
+		
+		.wp-block-post-featured-image {
+			display: block;
+			width: 100%;
+			margin: 0;
+	
+			img {
+				display: block;
+				width: 100%;
+				border-radius: $border__radius $border__radius 0 0;
+			}
+		}
+
+		.wp-block-post-title {
+        	padding: $space-3 $space-3 $space-05 $space-3 ;
+		}
+		.wp-block-post-excerpt {
+			padding: 0 $space-3 $space-05 $space-3;
+			border-bottom: 2px solid color(primary-20);
+		}
+
+		.wp-block-group__inner-container .wp-block-group {
+			padding: $space-1 $space-3 $space-3 $space-3 ;
+		}
+	}
+}

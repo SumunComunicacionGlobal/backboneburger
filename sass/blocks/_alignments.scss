@@ -1,0 +1,39 @@
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	@include center-block;
+}
+
+.z-index-1 {
+	z-index: 1;
+	position: relative;
+}
+
+.dnone-mobile {
+	@include breakpoint(mobile) {
+		display: none !important;
+	}
+}
+
+.dnone-tablet {
+	@include breakpoint(tablet) {
+		display: none !important;
+	}
+}
+
+.title-has-image {
+	display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+}

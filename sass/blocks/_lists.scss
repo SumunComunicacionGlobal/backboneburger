@@ -1,0 +1,147 @@
+ul, ol {
+	margin: $space-1;
+	padding: 0;
+}
+
+ul {
+	list-style: circle;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: $space-05;
+	margin-left: $space__unit;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 $space__unit $space__unit;
+}
+
+ul.is-style-separator-list {
+	list-style: none;
+	position: relative;
+	margin: 0;
+	padding: 0;
+
+	li {
+		padding-bottom: $space-05;
+		margin-bottom: 1rem;
+		border-bottom: 1px solid color(primary-40); 
+		position: relative;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		a {
+			width: 100%;
+			color: color(body-main);
+			transition: 0.1s all linear;
+			display: inline-block;
+
+			&::after {
+				content: url('assets/icons/arrow-link.svg');
+				display: inline-block;	
+				vertical-align: middle;
+				margin-left: $space-1;
+				transition: 0.4s;
+				transform: translate(-100%);
+				right: 0;
+				position: absolute;
+				opacity: 0.5;
+				
+			}
+
+			&:hover {
+				color: color(body-link--hover);
+				&::after {
+					transform: translate(0);
+					transition: 0.4s;
+					opacity: 1;
+					
+				}
+			}
+
+			&[href^="#"]:hover::after {
+				transform: translate(0) rotate(90deg) ;
+			}
+			&[href$=".pdf"]::after {
+				content: url('assets/icons/download.svg');
+			}
+		}
+	}
+}
+
+ul.is-style-numbers-list, ol.is-style-numbers-list {
+	list-style: none;
+  	counter-reset: my-awesome-counter;
+
+	li {
+		position: relative;
+		counter-increment: my-awesome-counter;
+		margin-left: 48px;
+		margin-bottom: 40px;
+		
+		&:before {
+			content: counter(my-awesome-counter);
+			position: absolute;
+			--size: 48px;
+			left: calc(-1 * var(--size) - 12px);
+			line-height: var(--size);
+			width: var(--size);
+			height: var(--size);
+			top: 0;
+			border: 2px solid color(secondary);
+			border-radius: 100%;
+			text-align: center;
+		}
+	}
+}
+
+ul.is-style-icons-list, .widget_nav_menu {
+	list-style: none;
+	position: relative;
+	padding: 0;
+	margin: 0;
+
+	li {
+		display: flex;
+		align-items: center; 
+		padding-bottom: $space-2;
+	}
+	li:before{
+		display: inline-flex;
+		content: '';
+		background-image: url("assets/icons/chevron-right.svg");
+		background-size: 24px 24px;
+		background-repeat: no-repeat;
+		color: white;
+		width: $space-2;
+		height: $space-2;
+		margin-right: $space-05;
+	}
+
+	a {
+		color: color(body-medium);
+		transition: padding-left 0.3s ease;
+		&:hover {
+			color: color(secondary);
+			padding-left: $space-05;
+			transition: padding-left 0.3s ease;
+		}
+	}
+}
+
+
+.wp-block-social-links.is-style-logos-only .wp-social-link {
+	border: 1px solid;
+	padding: $space-05;
+  }

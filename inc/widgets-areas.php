@@ -1,0 +1,39 @@
+<?php 
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function blackbone_widgets_init() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar', 'blackbone' ),
+			'id'            => 'sidebar',
+			'description'   => esc_html__( 'Add widgets here.', 'blackbone' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+    register_sidebar(
+		array(
+			'name'          => esc_html__( 'Menu', 'blackbone' ),
+			'id'            => 'sidebar-menu',
+			'description'   => esc_html__( 'Add widgets here.', 'blackbone' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer', 'blackbone' ),
+			'id'            => 'sidebar-footer',
+			'description'   => esc_html__( 'Add widgets here.', 'blackbone' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s col-xs-12 col-md">',
+			'after_widget'  => '</div>',
+		)
+	);
+}
+add_action( 'widgets_init', 'blackbone_widgets_init' );

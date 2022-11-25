@@ -11,19 +11,25 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'blackbone' ) ); ?>">
+	<footer id="colophon">
+		<div class="site-footer center-xs">
+			<div class="site-branding col-xs-12 mb-2 mt-4">
+				<?php the_custom_logo(); ?>
+			</div><!-- .site-branding -->
+			<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer')) : ?>
+			<?php endif; ?>
+		</div>
+
+		<div class="site-info container dflex between-xs middle-xs pt-1 pb-1">
+			<div>
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'blackbone' ), 'WordPress' );
+				printf( esc_html__( '2022 %s', 'blackbone' ), 'Black Bone Burger Zaragoza' );
 				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'blackbone' ), 'blackbone', '<a href="https://sumun.net/">Sumun</a>' );
-				?>
+			</div>
+			<div class="footer-menu">
+				Lorem
+			</div>	
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

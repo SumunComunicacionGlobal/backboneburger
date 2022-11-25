@@ -1,0 +1,17 @@
+a {
+	color: color(body-link);
+	text-decoration: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: color(body-link)-hover;
+	}
+	&:focus {
+		outline: none;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}

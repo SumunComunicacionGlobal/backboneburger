@@ -1,0 +1,67 @@
+// Custom Buttons
+.wp-block-button:not(.is-style-with-icon):not(.is-style-theme-link) .wp-block-button__link{
+    line-height: 1;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    padding: 1rem $space-3;
+
+	&:hover {
+		background-color: color(secondary);
+		
+		&::after {
+			padding-left: $space-1;
+			transition: padding-left 0.3s ease;
+		}
+	}
+
+	&:after {
+		content: '→';
+		padding-left: $space-05;
+		transition: padding-left 0.3s ease;
+	}
+	
+}
+
+.wp-block-button.is-style-theme-link .wp-block-button__link {
+	
+	background: transparent;
+	border-radius: 0;
+	padding: 0;
+	transition: 0.4s;
+	@include font-size(1);
+	text-transform: uppercase;
+
+	&:hover {
+		color: color(body-link);
+	}
+
+	&:hover::before {
+		margin-right: $space-2;
+		transition: 0.4s;
+	}
+
+	&::before {
+		content: '';
+  		mask: url('assets/icons/arrow-circle.svg') no-repeat 50% 50%;
+		  -webkit-mask: url('assets/icons/arrow-circle.svg') no-repeat 50% 50%;
+		mask-size: cover;
+  		  -webkit-mask-size: cover;
+		background-color: color(body-white);
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: $space-1;
+		transition: 0.4s;
+		width: $space-3;
+  		height: $space-3;
+	}
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+	padding: 0.8125rem $space-3;
+	&:hover {
+		color: color(secondary);
+		background-color: transparent;
+	}
+	
+}
+

@@ -1,0 +1,121 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// edit font rendering -> tip: use for light text on dark backgrounds
+@mixin fontSmooth {
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// Responsive breakpoints
+@mixin breakpoint($point) {
+	@if $point == desktop {
+	  @media (max-width: 1440px) { @content ; }
+   	}
+	@else if $point == laptop {
+	  @media (max-width: 1280px) { @content ; }
+   	}
+	 @else if $point == tablet {
+	  @media (max-width: 1194px) { @content ; }
+   	}
+	@else if $point == mobile {
+	  @media (max-width: 768px)  { @content ; }
+   	}
+   	@else if $point == xsmobile {
+	  @media (max-width: 414px)  { @content ; }
+   	}
+}
+
+
+// Container
+@mixin container {
+	margin-right: auto;
+  	margin-left: auto;
+  	padding-right: $grid__gap;
+  	padding-left: $grid__gap;
+	
+	// 768px Tablet
+	@media only screen and (min-width: 48em) {
+		//width: 46rem;
+	}
+
+	// 1180px Tablet
+	@media only screen and (min-width: 73.75em) {
+		width: 65.5rem;
+	}
+	
+	// 1280px Laptop
+	@media only screen and (min-width: 80em) {
+		width: 74rem; // 1216px - 32px padding 
+	}
+
+	// 1440px Desktop
+	@media only screen and (min-width: 90em) {
+		width: 80rem;
+	}
+}
+
+// Buttons
+@mixin button {
+	display: inline-flex;
+	position: relative;
+	text-decoration: none;
+	line-height: 1;
+	font-weight: bold;
+	transition: all 0.3s ease;
+	border-radius: $border__radius;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-family: $font__main;
+	@include fontSmooth;
+}
+
+
+// Loops to enumerate the classes for grid columns.
+@for $i from 2 through 9 {
+
+	.grid-columns-#{$i} {
+		display: grid;
+		gap: $space-3;
+		grid-template-columns: repeat($i, 1fr);
+
+		@include breakpoint(mobile) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+}
+
+
+// Generate Gutenberg Colour Classes
+@each $key, $value in $gutenbergColors {
+	.has-#{$key}-color,
+	.has-#{$key}-color:visited {
+		color: $value;
+	}
+	.has-#{$key}-background-color {
+		background-color: $value;
+	}
+}

@@ -1,0 +1,40 @@
+.faqs-block {
+	
+	.faqs-btn {
+		background-color: transparent;
+		cursor: pointer;
+		width: 100%;
+		border-bottom: 1px solid color(primary-20);
+		border-radius: 0;
+		align-items: center;
+		text-align: left;
+		justify-content: space-between;
+		transition: 0.4s;
+		padding: $space-1 0 $space-05 0;
+		margin: $space-05 0;
+		color: color(body-main);
+
+		&:hover, &.active {
+			color: color(secondary);
+		}
+
+		span {
+			background-color: color(secondary);
+  			-webkit-mask: url(assets/icons/more.svg) no-repeat center;
+  			mask: url(assets/icons/more.svg) no-repeat center;
+			width: $space-1;
+			height: $space-1;
+		}
+	}
+
+	.active span {
+		-webkit-mask: url(assets/icons/less.svg) no-repeat center;
+  		mask: url(assets/icons/less.svg) no-repeat center;
+	}
+	
+	.faqs-content {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+	}
+}
