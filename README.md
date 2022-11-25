@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
-Centro Europeo de Implantología Oral: Black Bone Burger
+Black Bone Burger
 ===
 
 Hola. Esto es el tema `Black Bone Burger`, para el Centro Europeo de Implantología Oral, está basado en el starter theme Underscores.
