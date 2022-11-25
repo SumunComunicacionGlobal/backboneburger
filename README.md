@@ -3,14 +3,14 @@
 Black Bone Burger
 ===
 
-Hola. Esto es el tema `Black Bone Burger`, para el Centro Europeo de Implantología Oral, está basado en el starter theme Underscores.
+Hola. Esto es el tema `BlackBone`, para el Black Bone Burger, está basado en el starter theme Underscores.
 
 Instalación
 ---------------
 
 ### Requirimientos
 
-`Black Bone Burger` solo requiere estas dependencias:
+`BlackBone` solo requiere estas dependencias:
 
 - [Node.js](https://nodejs.org/)
 - [Composer](https://getcomposer.org/)
@@ -21,7 +21,7 @@ Clona o descarga este repositorio `$ git clonehttps://github.com/SumunComunicaci
 
 ### Setup
 
-Para empezar a usar todas las herramientas del tema `Black Bone Burger` necesitas instalar las dependencias de Node.js y Composer :
+Para empezar a usar todas las herramientas del tema `BlackBone` necesitas instalar las dependencias de Node.js y Composer :
 
 ```sh
 $ composer install
@@ -30,7 +30,7 @@ $ npm install
 
 ### Comandos CLI disponibles
 
-`Black Bone Burger` está preparado para el desarollo de la plantilla para WordPress :
+`BlackBone` está preparado para el desarollo de la plantilla para WordPress :
 
 - `composer lint:wpcs` : comprueba todos los archivos PHP con [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
 - `composer lint:php` : comprueba todos los archivos PHP en busca de errores de sintaxis.
