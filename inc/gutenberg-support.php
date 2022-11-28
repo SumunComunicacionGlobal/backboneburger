@@ -75,21 +75,21 @@ add_editor_style( 'style-editor.css' );
 
 
 // Add custom block Faqs ACF
-function faqs_acf_init() {
+function tabs_acf_init() {
 	if(function_exists('acf_register_block')) {
 		acf_register_block(array(
-			'name' => 'faqs',
-			'title' => __('Faqs'),
-			'description' => __('Preguntas frecuentes', 'blackbone'),
+			'name' => 'tabs',
+			'title' => __('Product Tabs'),
+			'description' => __('Tabs de productos en la carta', 'blackbone'),
 			'render_callback' => 'acf_block_callback',
 			'category' => 'theme',
 			'icon' => 'editor-help',
 			'mode' => 'auto',
-			'keywords' => array('faqs', 'blackbone'),
+			'keywords' => array('tabs', 'blackbone'),
 		));
 	}
 }
-add_action('acf/init', 'faqs_acf_init');
+add_action('acf/init', 'tabs_acf_init');
 
 
 

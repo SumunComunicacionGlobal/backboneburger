@@ -61,6 +61,7 @@ array('hierarchical' => true,     /* if this is true, it acts like categories */
     'show_admin_column' => true,
     'show_in_rest' => true,
     'show_ui' => true,
+    'public'  => false,  
     'query_var' => true,
     'has_archive' => false, /* you can rename the slug here */
     )
