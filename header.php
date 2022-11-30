@@ -27,7 +27,7 @@
 
 	<header id="masthead" class="site-header">
 		
-		<span onclick="openNav()" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+		<span onclick="openNav()" class="menu-toggle" aria-controls="primary-menu" type="button" role="open-menu">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/menu-burger.svg" width="80" height="80">
 		</span>
 	
@@ -35,13 +35,18 @@
 			<?php the_custom_logo(); ?>
 		</div><!-- .site-branding -->
 
-		<a href="" class="btn"><?php esc_html_e( 'Hacer un pedido', 'blackbone' ); ?></a>
+		<div class="wp-block-button">
+			<a class="wp-block-button__link has-body-main-color has-secondary-background-color" href="#CTA">
+				<span><?php esc_html_e( 'Hacer un pedido', 'blackbone' ); ?></span>
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/shopping-bag.svg" width="40" height="40">
+			</a>
+		</div>
 
 	</header><!-- #masthead -->
 
 	<div id="navigation" class="overlay">
 
-		<span onclick="closeNav()" class="close-toggle" aria-controls="primary-menu" aria-expanded="false">
+		<span onclick="closeNav()" class="close-toggle" type="button" role="button" aria-expanded="false">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/close.svg" width="80" height="80">
 		</span>
 		
@@ -68,10 +73,8 @@
 			</div>
 
 			<div class="address-navigation col-xs-12 col-md-6">
-				<?php
-				$post_id = 'menu__primary-menu'; //the number must be the menu ID
-				$field = get_field('menu_address', $post_id); ?>
-				Aquí la dirección.
+				<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Address Menu')) : ?>
+				<?php endif; ?>
 			</div>
 
 		</div>
@@ -80,12 +83,15 @@
 
 <script>
 function openNav() {
-  document.getElementById("navigation").style.width = "100%";
-  document.getElementById("bbb").style.overflow = "hidden";
+
+	var d = document.getElementById("navigation");
+  	d.style.width = "100%";
+	document.getElementById("bbb").style.overflow = "hidden";
 }
 
 function closeNav() {
   document.getElementById("navigation").style.width = "0%";
   document.getElementById("bbb").style.overflow = "auto";
 }
+
 </script>

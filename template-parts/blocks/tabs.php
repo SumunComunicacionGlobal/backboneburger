@@ -15,14 +15,16 @@ if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }
 
-if( get_field('slider_or_grid') == 'false' ) :
-    $slider = 'slider';
-    else : $slider = 'grid-columns-2'; 
-endif;
-
+$terms = get_field('taxonomies_ids');
 $count = 0;
 
-$terms = get_field('taxonomies_ids');
+if( get_field('slider_or_grid') == 'false' ) :
+    $slider = 'swiper swiper-container-block';
+    $slider_wrapper = 'swiper-wrapper';
+    else :
+        $slider = ''; 
+        $slider_wrapper = 'grid-columns-2';
+endif;
 
 if( $terms ): ?>
 
@@ -36,42 +38,62 @@ if( $terms ): ?>
     
     <?php foreach( $terms as $term ): ?>
         <div id="<?php echo esc_html( $term->name ); ?>" class="tabcontent <?php echo esc_attr($slider); ?>">
-            <?php
-            $the_query = new WP_Query( array(
-                'post_type' => 'carta',
-                'tax_query' => array(
-                    array (
-                        'taxonomy' => 'category-carta',
-                        'field' => 'term_id',
-                        'terms' => $term->term_id,
-                    )
-                ),
-            ) );
             
+            <?php    
+                echo '<div class="'.$slider_wrapper.'">'; 
 
-            while ( $the_query->have_posts() ) :
-                $the_query->the_post();
-                // Show Posts ...
-
-                if( get_field('slider_or_grid') == 'false' ) :
-                    
-                    get_template_part( 'template-parts/product' );
-                    
-                    else :
-                    
-                    get_template_part( 'template-parts/product', 'slider' );
+                $the_query = new WP_Query( array(
+                    'post_type' => 'carta',
+                    'tax_query' => array(
+                        array (
+                            'taxonomy' => 'category-carta',
+                            'field' => 'term_id',
+                            'terms' => $term->term_id,
+                        )
+                    ),
+                ) );
                 
-                endif;
+                while ( $the_query->have_posts() ) :
+                    $the_query->the_post();
+                    
+                    // Show grid template or slider
 
+                    if( get_field('slider_or_grid') == 'false' ) :
+                        
+                        get_template_part( 'template-parts/product-slider' );
+
+                        else : get_template_part( 'template-parts/product' );
+                    
+                    endif;
+
+                endwhile;
                 
-            endwhile;
+                wp_reset_postdata();
+                ?>
+            </div>
 
-            /* Restore original Post Data 
-            * NB: Because we are using new WP_Query we aren't stomping on the 
-            * original $wp_query and it does not need to be reset.
-            */
-            wp_reset_postdata();
-            ?>
+            <?php if( get_field('slider_or_grid') == 'false' ) : ?>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+
+                <!-- Initialize Swiper -->
+                <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+                <script>
+                    var swiper = new Swiper('#<?php echo esc_html( $term->name ); ?>', {
+                        slidesPerView: 1,
+                        // Navigation arrows
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        breakpoints: {
+                            768: {
+                                slidesPerView: 3,
+                            },
+                        },
+                    });
+                </script>  
+            <?php endif; ?>
         </div>
     <?php endforeach; ?>
 
@@ -96,3 +118,10 @@ function openTab(evt, taxName) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("Hamburguesas").click();
 </script>
+
+<?php if( get_field('slider_or_grid') == 'false' ) : ?>
+    
+
+    
+<?php endif; ?>
+

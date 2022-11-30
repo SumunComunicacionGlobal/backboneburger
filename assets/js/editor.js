@@ -36,6 +36,10 @@ wp.domReady( () => {
 			name: 'theme-link',
 			label: 'Simple con icono',
 		},
+		{
+			name: 'with-arrow',
+			label: 'Con Flecha',
+		},
 	] );
 } );
 

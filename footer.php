@@ -27,9 +27,17 @@
 				printf( esc_html__( '2022 %s', 'blackbone' ), 'Black Bone Burger Zaragoza' );
 				?>
 			</div>
-			<div class="footer-menu">
-				Lorem
-			</div>	
+			
+			<nav class="footer-menu">
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'footer',
+							'menu_id'        => 'footer-menu',
+						)
+					);
+				?>
+			</nav>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

@@ -42,7 +42,7 @@
 /* Style the tab */
 
 .tabs-products {
-	overflow: hidden;
+	position: relative;
 
 	.tabs-buttons button {
 		background-color: transparent;
@@ -50,6 +50,7 @@
 		margin-right: $space-3;
 		justify-content: start;
 		border-radius: 0;
+		border: 0;
 		transition: all 0.2s ease-out;
 
 		&.active, &:hover {
@@ -62,6 +63,12 @@
 	.tabcontent {
 		display: none;
 		transition: all 0.2s ease-out;
+
+		@include breakpoint(mobile) {
+			.dflex {
+				display: block;
+			};
+		}
 	}
 	#Hamburguesas {
 		display: grid;

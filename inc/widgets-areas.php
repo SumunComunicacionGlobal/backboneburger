@@ -31,7 +31,17 @@ function blackbone_widgets_init() {
 			'name'          => esc_html__( 'Footer', 'blackbone' ),
 			'id'            => 'sidebar-footer',
 			'description'   => esc_html__( 'Add widgets here.', 'blackbone' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s col-xs-12 col-md">',
+			'before_widget' => '<div id="%1$s" class="widget %2$s container">',
+			'after_widget'  => '</div>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Address Menu', 'blackbone' ),
+			'id'            => 'sub-menu',
+			'description'   => esc_html__( 'Add widgets here.', 'blackbone' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 		)
 	);

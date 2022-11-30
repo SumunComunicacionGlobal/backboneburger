@@ -1,12 +1,23 @@
 // Custom Buttons
-.wp-block-button:not(.is-style-with-icon):not(.is-style-theme-link) .wp-block-button__link{
+.wp-block-button__link {
+	@include font-size(1);
+}
+
+.wp-block-button:not(.is-style-with-icon):not(.is-style-theme-link) .wp-block-button__link {
     line-height: 1;
-    font-weight: bold;
+    font-weight: 700;
     transition: all 0.3s ease;
-    padding: 1rem $space-3;
+    padding: 1.25rem $space-3;
 
 	&:hover {
-		background-color: color(secondary);
+		background-color: color(primary-80);
+	}
+	
+}
+
+.wp-block-button.is-style-with-arrow .wp-block-button__link {
+
+	&:hover {
 		
 		&::after {
 			padding-left: $space-1;
@@ -19,7 +30,7 @@
 		padding-left: $space-05;
 		transition: padding-left 0.3s ease;
 	}
-	
+
 }
 
 .wp-block-button.is-style-theme-link .wp-block-button__link {

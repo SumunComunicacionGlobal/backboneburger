@@ -1,12 +1,35 @@
 .site-footer {
     background-color: color(primary);
+    background-position: 50% 50%;
+    background-image: url(./assets/img/pattern-red-ligth-30.png);
+    background-repeat: repeat;
+    background-attachment: fixed;
     color: white;
     position: relative;
     z-index: 1;
+    padding-bottom: $space-4;
 
     a {
         color: white;
-    }    
+    }
     
+}
+
+.footer-menu {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: inline-flex;
+
+        li {
+            padding: 0 $space-05;
+
+            a {
+                color: color(body-white);
+                &:hover {color: color(secondary-60)}
+            }
+        }
+    }
 }
 

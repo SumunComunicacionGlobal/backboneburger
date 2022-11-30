@@ -19,8 +19,10 @@ textarea {
 	border-radius: $border__radius;
 	padding: $space-05;
 	width: 100%;
+	line-height: 1;
+	min-height: 48px;
 	background-color: white;
-	border: solid 1px color(body-main);
+	border: solid 1px color(body-medium);
 
 	.has-body-white-color & {
 		color: white;
@@ -45,6 +47,16 @@ input[type="submit"] {
 	color: white;
 	&:hover {
 		background-color: color(secondary);
+	}
+}
+
+form .newsletter-form {
+    display: flex;
+
+	input[type="submit"] {
+		margin-left: -32px;
+		margin-top: 24px;
+		border-radius: 0 $border__radius $border__radius 0;
 	}
 }
 

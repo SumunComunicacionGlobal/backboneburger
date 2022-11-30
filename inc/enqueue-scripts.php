@@ -7,7 +7,7 @@ function blackbone_scripts() {
 	wp_enqueue_style( 'blackbone-style', get_stylesheet_uri(), array(), _S_VERSION );
 	
 	wp_enqueue_script( 'jquery' );
-	//wp_enqueue_script( 'blackbone-js', get_template_directory_uri() . '/assets/js/blackbone.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'blackbone-js', get_template_directory_uri() . '/assets/js/bbb.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
