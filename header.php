@@ -27,8 +27,9 @@
 
 	<header id="masthead" class="site-header">
 		
-		<span onclick="openNav()" class="menu-toggle" aria-controls="primary-menu" type="button" role="open-menu">
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/menu-burger.svg" width="80" height="80">
+		<span onclick="openNav()" class="menu-toggle" aria-controls="primary-menu" type="button" role="button">
+			<span class="screen-reader-text"><?php esc_html_e( 'Abrir menú', 'blackbone' ); ?></span>
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/menu-burger.svg" width="80" height="80" alt="Abrir menú">
 		</span>
 	
 		<div class="site-branding">
@@ -38,7 +39,7 @@
 		<div class="wp-block-button">
 			<a class="wp-block-button__link has-body-main-color has-secondary-background-color" href="#CTA">
 				<span><?php esc_html_e( 'Hacer un pedido', 'blackbone' ); ?></span>
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/shopping-bag.svg" width="40" height="40">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/shopping-bag.svg" width="40" height="40" alt="Hacer un pedido">
 			</a>
 		</div>
 
@@ -47,7 +48,8 @@
 	<div id="navigation" class="overlay">
 
 		<span onclick="closeNav()" class="close-toggle" type="button" role="button" aria-expanded="false">
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/close.svg" width="80" height="80">
+			<span class="screen-reader-text"><?php esc_html_e( 'Cerrar menu', 'blackbone' ); ?></span>
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/close.svg" width="80" height="80" alt="Cerrar menu">
 		</span>
 		
 		<div class="overlay--content row">
