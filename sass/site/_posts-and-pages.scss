@@ -1,3 +1,23 @@
 main.site-main {
-    margin-top: 154px;
+    margin-top: 148px;
+}
+
+body.light-mode {
+    background-color: color(primary-20) !important;
+    color: color(body-main) !important;
+
+    .overlay {
+        background-color: color(primary-20) !important;
+        color: color(body-main) !important;
+    }
+
+    button,
+    input,
+    select,
+    optgroup,
+    textarea,
+    .overlay .site-navigation ul li a,
+    .footer-menu ul li a {
+        color: color(body-main) !important;
+    }
 }
