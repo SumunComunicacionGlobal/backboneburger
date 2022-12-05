@@ -32,12 +32,17 @@ if( $terms ): ?>
     
     <div class="tabs-buttons mb-4">
         <?php foreach( $terms as $term ):  $count++; ?>
-            <button class="tablinks text-h6 <?php if($count == 1){echo ' active';};?>" onclick="openTab(event, '<?php echo $term->name; ?>')"><?php echo $term->name; ?></button>
+            <?php if ( $term->count > 0 ) : ?>
+                <button class="tablinks text-h6 <?php if($count == 1){echo ' active';};?>" onclick="openTab(event, '<?php echo $term->name; ?>')"><?php echo $term->name; ?></button>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
     
     <?php foreach( $terms as $term ): ?>
-        <div id="<?php echo esc_html( $term->name ); ?>" class="tabcontent <?php echo esc_attr($slider); ?>">
+    
+        <?php if ( $term->count > 0 ) : ?>
+    
+            <div id="<?php echo esc_html( $term->name ); ?>" class="tabcontent <?php echo esc_attr($slider); ?>">
             
             <?php    
                 echo '<div class="'.$slider_wrapper.'">'; 
@@ -71,6 +76,8 @@ if( $terms ): ?>
                 wp_reset_postdata();
                 ?>
             </div>
+    
+        <?php endif; ?>
 
             <?php if( get_field('slider_or_grid') == 'false' ) : ?>
                 <div class="swiper-button-next"></div>
