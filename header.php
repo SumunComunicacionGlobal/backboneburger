@@ -39,7 +39,7 @@
 			<?php the_custom_logo(); ?>
 		</div><!-- .site-branding -->
 
-		<div class="wp-block-button">
+		<div class="wp-block-button" id="boton-marchando-header">
 			<a class="wp-block-button__link has-body-main-color has-secondary-background-color" href="#CTA">
 				<span><?php esc_html_e( 'Hacer un pedido', 'blackbone' ); ?></span>
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/shopping-bag.svg" width="40" height="40" alt="Hacer un pedido">
