@@ -84,15 +84,22 @@
 }
 
 .overlay {
+	display: flex;
 	height: 100%;
-	width: 0;
+	// width: 0;
+	width: 100%;
 	position: fixed;
 	z-index: 99;
 	top: 0;
-	left: 0;
-	background-color: color(body-main);
+	// left: 0;
+	right: 100%;
+	background-color: rgba( color(body-main), .97);
 	overflow-x: hidden;
 	transition: 0.5s;
+
+	&.navigation-open {
+		right: 0;
+	}
 
 	.overlay--content {
 		padding: $space-4 $space-8;
@@ -129,7 +136,7 @@
 			font-family: $font__heading;
 			font-weight: bold;
 			text-transform: uppercase;
-			letter-spacing: 3px;
+			// letter-spacing: 3px;
 			line-height: 40px;
 			margin: 0;
 			padding: 0;

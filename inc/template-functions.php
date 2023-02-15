@@ -35,3 +35,9 @@ function blackbone_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'blackbone_pingback_header' );
+
+function bbb_btn_carta() { ?>
+	
+	<a class="btn--carta" href="<?php the_permalink( PAGE_ID_PEDIDOS ) ?>" title="<?php printf( __( 'Pedir %s', 'bbb' ), get_the_title() ); ?>"><?php _e( 'Pedir', 'bbb' ); ?></a>
+
+<?php }

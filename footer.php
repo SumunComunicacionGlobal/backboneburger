@@ -24,7 +24,8 @@
 			<div>
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( '2022 %s', 'blackbone' ), 'Black Bone Burger Zaragoza' );
+				echo date("Y") . ' ';
+				printf( esc_html__( '%s', 'blackbone' ), 'Black Bone Burger Zaragoza' );
 				?>
 			</div>
 			

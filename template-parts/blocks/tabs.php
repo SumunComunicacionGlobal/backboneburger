@@ -44,64 +44,71 @@ if( $terms ): ?>
     
             <div id="<?php echo esc_html( $term->name ); ?>" class="tabcontent <?php echo esc_attr($slider); ?>">
             
-            <?php    
+                <?php    
                 echo '<div class="'.$slider_wrapper.'">'; 
 
-                $the_query = new WP_Query( array(
-                    'post_type' => 'carta',
-                    'tax_query' => array(
-                        array (
-                            'taxonomy' => 'category-carta',
-                            'field' => 'term_id',
-                            'terms' => $term->term_id,
-                        )
-                    ),
-                ) );
-                
-                while ( $the_query->have_posts() ) :
-                    $the_query->the_post();
+                    $the_query = new WP_Query( array(
+                        'post_type' => 'carta',
+                        'tax_query' => array(
+                            array (
+                                'taxonomy' => 'category-carta',
+                                'field' => 'term_id',
+                                'terms' => $term->term_id,
+                            )
+                        ),
+                    ) );
                     
-                    // Show grid template or slider
-
-                    if( get_field('slider_or_grid') == 'false' ) :
+                    while ( $the_query->have_posts() ) :
+                        $the_query->the_post();
                         
-                        get_template_part( 'template-parts/product-slider' );
+                        // Show grid template or slider
 
-                        else : get_template_part( 'template-parts/product' );
+                        if( get_field('slider_or_grid') == 'false' ) :
+                            
+                            get_template_part( 'template-parts/product-slider' );
+
+                            else : get_template_part( 'template-parts/product' );
+                        
+                        endif;
+
+                    endwhile;
                     
-                    endif;
+                    wp_reset_postdata();
 
-                endwhile;
-                
-                wp_reset_postdata();
+                echo '</div>'; // $slider_wrapper
                 ?>
-            </div>
+                
     
+                <?php if( get_field('slider_or_grid') == 'false' ) : ?>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+
+                    <!-- Initialize Swiper -->
+                    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+                    <script>
+                        var swiper = new Swiper('#<?php echo esc_html( $term->name ); ?>', {
+                            slidesPerView: 1,
+                            // Navigation arrows
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            },
+                            breakpoints: {
+                                600: {
+                                    slidesPerView: 2,
+                                },
+                                1280: {
+                                    slidesPerView: 3,
+                                },
+                            },
+                        });
+                    </script>  
+                <?php endif; ?>
+
+            </div>
+
         <?php endif; ?>
 
-            <?php if( get_field('slider_or_grid') == 'false' ) : ?>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-
-                <!-- Initialize Swiper -->
-                <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-                <script>
-                    var swiper = new Swiper('#<?php echo esc_html( $term->name ); ?>', {
-                        slidesPerView: 1,
-                        // Navigation arrows
-                        navigation: {
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                        },
-                        breakpoints: {
-                            768: {
-                                slidesPerView: 3,
-                            },
-                        },
-                    });
-                </script>  
-            <?php endif; ?>
-        </div>
     <?php endforeach; ?>
 
 </div> <!-- end #<?php echo esc_attr($id); ?> -->  

@@ -1,23 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @font-face {
-    font-family: 'Formula Condensed';
-    src: url('assets/fonts/FormulaCondensed-Bold.eot');
-    src: url('assets/fonts/FormulaCondensed-Bold.eot') format('embedded-opentype'),
-      url('assets/fonts/FormulaCondensed-Bold.woff2') format('woff2'),
-      url('assets/fonts/FormulaCondensed-Bold.woff') format('woff');
+//     font-family: 'Formula Condensed';
+//     src: url('assets/fonts/FormulaCondensed-Bold.eot');
+//     src: url('assets/fonts/FormulaCondensed-Bold.eot') format('embedded-opentype'),
+//       url('assets/fonts/FormulaCondensed-Bold.woff2') format('woff2'),
+//       url('assets/fonts/FormulaCondensed-Bold.woff') format('woff');
     
+//     font-weight: 700;
+//     font-style: normal;
+//   }
+   
+//   @font-face {
+//     font-family: 'Formula Condensed';
+//     src: url('assets/fonts/FormulaCondensed-Light.eot');
+//     src: url('assets/fonts/FormulaCondensed-Light.eot') format('embedded-opentype'),
+//       url('assets/fonts/FormulaCondensed-Light.woff2') format('woff2'),
+//       url('assets/fonts/FormulaCondensed-Light.woff') format('woff');
+
+//     font-weight: 200;
+//     font-style: normal;
+//   }
+
+  @font-face {
+    font-family: 'Roboto Condensed';
+    src: url('assets/fonts/RobotoCondensed-Bold.woff') format('woff');
     font-weight: 700;
-    font-style: bold;
+    font-style: normal;
   }
    
   @font-face {
-    font-family: 'Formula Condensed';
-    src: url('assets/fonts/FormulaCondensed-Light.eot');
-    src: url('assets/fonts/FormulaCondensed-Light.eot') format('embedded-opentype'),
-      url('assets/fonts/FormulaCondensed-Light.woff2') format('woff2'),
-      url('assets/fonts/FormulaCondensed-Light.woff') format('woff');
-
+    font-family: 'Roboto Condensed';
+    src: url('assets/fonts/RobotoCondensed-Light.woff') format('woff');
     font-weight: 200;
     font-style: normal;
   }
@@ -110,7 +124,7 @@ h1, h2, h3, h4, h5, h6,
     line-height: $font__line-height-header;
     font-family: $font__heading; 
     text-transform: uppercase;
-    letter-spacing: 3px;  
+    // letter-spacing: 3px;  
 }
 
 .display {
@@ -129,7 +143,7 @@ h1, .text-h1  {
 
 
 h2, .text-h2 {
-    font-size: 2.5em;
+    font-size: 3.2em;
 
     @include breakpoint(mobile) {
 		font-size: 2em;
@@ -172,4 +186,9 @@ h6, .text-h6 {
 
 .uppercase {
     text-transform: uppercase;
+}
+
+.small,
+.small p {
+    @include font-size(0.85);
 }

@@ -40,7 +40,7 @@
 		</div><!-- .site-branding -->
 
 		<div class="wp-block-button" id="boton-marchando-header">
-			<a class="wp-block-button__link has-body-main-color has-secondary-background-color" href="#CTA">
+			<a class="wp-block-button__link has-body-main-color has-secondary-background-color" href="<?php the_permalink( PAGE_ID_PEDIDOS ); ?>">
 				<span><?php esc_html_e( 'Hacer un pedido', 'blackbone' ); ?></span>
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/icons/shopping-bag.svg" width="40" height="40" alt="Hacer un pedido">
 			</a>
@@ -87,15 +87,16 @@
 
 <script>
 function openNav() {
-
 	var d = document.getElementById("navigation");
-  	d.style.width = "100%";
+  	// d.style.width = "100%";
+	d.classList.add("navigation-open");
 	document.getElementById("bbb").style.overflow = "hidden";
 }
 
 function closeNav() {
-  document.getElementById("navigation").style.width = "0%";
-  document.getElementById("bbb").style.overflow = "auto";
+//   document.getElementById("navigation").style.width = "0%";
+	document.getElementById("navigation").classList.remove("navigation-open");
+  	document.getElementById("bbb").style.overflow = "auto";
 }
 
 function ligthMode() {
