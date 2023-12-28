@@ -51,7 +51,7 @@ add_action('after_setup_theme', function ()
     }
     if ( $colour_palette )
     {
-        add_theme_support( 'disable-custom-colors' );
+        // add_theme_support( 'disable-custom-colors' );
         add_theme_support( 'editor-color-palette', $colour_palette );    
     }
 
