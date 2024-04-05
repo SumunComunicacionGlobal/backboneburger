@@ -32,7 +32,7 @@ function custom_post_carta() {
             'capability_type' => 'post',
             'hierarchical' => false,
             /* the next one is important, it tells what's enabled in the post editor */
-            'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' )
+            'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' )
         ) /* end of options */
     ); /* end of register post type */
     
