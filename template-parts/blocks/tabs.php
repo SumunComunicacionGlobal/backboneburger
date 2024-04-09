@@ -28,12 +28,15 @@ endif;
 
 if( $terms ): ?>
 
+<!-- Initialize Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
 <div id="<?php echo esc_attr($id); ?>" class="tabs-products">
     
     <div class="tabs-buttons mb-4">
         <?php foreach( $terms as $term ):  $count++; ?>
             <?php if ( $term->count > 0 ) : ?>
-                <button class="tablinks text-h6 <?php if($count == 1){echo ' active';};?>" onclick="openTab(event, '<?php echo $term->name; ?>')"><?php echo $term->name; ?></button>
+                <button id="tab-button-<?php echo $term->slug; ?>" class="tablinks text-h6 <?php if($count == 1){echo ' active';};?>" onclick="openTab(event, '<?php echo $term->slug; ?>')"><?php echo $term->name; ?></button>
             <?php endif; ?>
         <?php endforeach; ?>
     </div>
@@ -42,7 +45,7 @@ if( $terms ): ?>
     
         <?php if ( $term->count > 0 ) : ?>
     
-            <div id="<?php echo esc_html( $term->name ); ?>" class="tabcontent <?php echo esc_attr($slider); ?>">
+            <div id="<?php echo esc_html( $term->slug ); ?>" class="tabcontent <?php echo esc_attr($slider); ?>">
             
                 <?php    
                 echo '<div class="'.$slider_wrapper.'">'; 
@@ -85,10 +88,8 @@ if( $terms ): ?>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
 
-                    <!-- Initialize Swiper -->
-                    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
                     <script>
-                        var swiper = new Swiper('#<?php echo esc_html( $term->name ); ?>', {
+                        var swiper = new Swiper('#<?php echo esc_html( $term->slug ); ?>', {
                             slidesPerView: 1,
                             // Navigation arrows
                             navigation: {
@@ -132,7 +133,7 @@ function openTab(evt, taxName) {
 }
 
 // Get the element with id="defaultOpen" and click on it
-document.getElementById("Hamburguesas").click();
+document.getElementById("tab-button-hamburguesas").click();
 </script>
 
 <?php if( get_field('slider_or_grid') == 'false' ) : ?>
@@ -140,4 +141,3 @@ document.getElementById("Hamburguesas").click();
 
     
 <?php endif; ?>
-
