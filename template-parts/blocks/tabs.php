@@ -56,6 +56,8 @@ if( $terms ): ?>
                                 'terms' => $term->term_id,
                             )
                         ),
+                        'orderby' => 'menu_order',
+                        'order' => 'ASC',
                     ) );
                     
                     while ( $the_query->have_posts() ) :
